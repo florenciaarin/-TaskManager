@@ -1,0 +1,226 @@
+﻿--CREACION DE BASE DE DATOS
+USE master
+GO
+CREATE DATABASE TP_ADM_TAREAS
+GO
+USE TP_ADM_TAREAS
+GO
+CREATE TABLE actividad (
+  [idactividad] INTEGER PRIMARY KEY IDENTITY,
+  [fechacreacion] DATE NOT NULL,
+  [descripcion] VARCHAR(255) NOT NULL,
+  [accionquelagenero] VARCHAR(255) NOT NULL,
+  [idusuarioquegenero] INTEGER NOT NULL,
+  [idtareagenero] INTEGER NOT NULL
+)
+GO
+CREATE TABLE equipo (
+  [idequipo] INTEGER PRIMARY KEY IDENTITY,
+  [nombre] VARCHAR(255) NOT NULL,
+  [descripcion] VARCHAR(255)
+)
+GO
+CREATE TABLE estado (
+  [idestado] INTEGER PRIMARY KEY IDENTITY,
+  [nombreestado] VARCHAR(255) NOT NULL
+)
+GO
+CREATE TABLE etiqueta (
+  [idetiqueta] INTEGER PRIMARY KEY IDENTITY,
+  [nombre] VARCHAR(255) NOT NULL
+)
+GO
+CREATE TABLE tablaauxparanotis (
+  [idtablaauxiliar] INTEGER PRIMARY KEY IDENTITY,
+  [iduserobserva] INTEGER NOT NULL,
+  [idtareaseguida] INTEGER NOT NULL
+)
+GO
+CREATE TABLE usuario (
+  [idusuario] INTEGER PRIMARY KEY IDENTITY,
+  [nombre] VARCHAR(255) NOT NULL,
+  [iniciales] VARCHAR(2) NOT NULL,
+  [mail] VARCHAR(255) NOT NULL,
+  [password] VARCHAR(255) NOT NULL
+)
+GO
+CREATE TABLE equipo_miembros (
+  [usuario] INTEGER NOT NULL,
+  [equipo] INTEGER NOT NULL,
+  CONSTRAINT [pk_equipo_miembros] PRIMARY KEY ([usuario], [equipo])
+)
+GO
+CREATE INDEX idx_equipo_miembros ON equipo_miembros ([equipo])
+GO
+ALTER TABLE [equipo_miembros] ADD CONSTRAINT [fk_equipo_miembros__equipo] FOREIGN KEY ([equipo]) REFERENCES equipo ([idequipo])
+GO
+ALTER TABLE [equipo_miembros] ADD CONSTRAINT [fk_equipo_miembros__usuario] FOREIGN KEY ([usuario]) REFERENCES usuario ([idusuario])
+GO
+CREATE TABLE tablero (
+  [idtablero] INTEGER PRIMARY KEY IDENTITY,
+  [nombre] VARCHAR(255) NOT NULL,
+  [idequipo] INTEGER,
+  [idusuariocreacion] INTEGER NOT NULL
+)
+GO
+CREATE INDEX idx_tablero__idequipo ON tablero ([idequipo])
+GO
+CREATE INDEX idx_tablero__idusuariocreacion ON tablero ([idusuariocreacion])
+GO
+ALTER TABLE [tablero] ADD CONSTRAINT [fk_tablero__idequipo] FOREIGN KEY ([idequipo]) REFERENCES equipo ([idequipo])
+GO
+ALTER TABLE [tablero] ADD CONSTRAINT [fk_tablero__idusuariocreacion] FOREIGN KEY ([idusuariocreacion]) REFERENCES usuario ([idusuario])
+GO
+CREATE TABLE tarea (
+  [idtarea] INTEGER PRIMARY KEY IDENTITY,
+  [idtablero] INTEGER NOT NULL,
+  [idestado] INTEGER NOT NULL,
+  [titulo] VARCHAR(255) NOT NULL,
+  [descripcion] VARCHAR(255),
+  [idusuariocreo] INTEGER NOT NULL,
+  [fechacreacion] DATE NOT NULL,
+  [fechavencimiento] DATE
+)
+GO
+CREATE INDEX idx_tarea__idestado ON tarea ([idestado])
+GO
+CREATE INDEX idx_tarea__idtablero ON tarea ([idtablero])
+GO
+ALTER TABLE [tarea] ADD CONSTRAINT [fk_tarea__idestado] FOREIGN KEY ([idestado]) REFERENCES estado ([idestado])
+GO
+ALTER TABLE [tarea] ADD CONSTRAINT [fk_tarea__idtablero] FOREIGN KEY ([idtablero]) REFERENCES tablero ([idtablero])
+GO
+CREATE TABLE comentario (
+  [idcomentario] INTEGER PRIMARY KEY IDENTITY,
+  [descripcomentario] VARCHAR(255),
+  [fechacreacion] DATE NOT NULL,
+  [idtarea] INTEGER NOT NULL,
+  [idusuariocreacion] INTEGER NOT NULL
+)
+GO
+CREATE INDEX idx_comentario__idtarea ON comentario ([idtarea])
+GO
+CREATE INDEX idx_comentario__idusuariocreacion ON comentario ([idusuariocreacion])
+GO
+ALTER TABLE [comentario] ADD CONSTRAINT [fk_comentario__idtarea] FOREIGN KEY ([idtarea]) REFERENCES tarea ([idtarea])
+GO
+ALTER TABLE [comentario] ADD CONSTRAINT [fk_comentario__idusuariocreacion] FOREIGN KEY ([idusuariocreacion]) REFERENCES usuario ([idusuario])
+GO
+CREATE TABLE etiqueta_tareas (
+  [tarea] INTEGER NOT NULL,
+  [etiqueta] INTEGER NOT NULL,
+  CONSTRAINT [pk_etiqueta_tareas] PRIMARY KEY ([tarea], [etiqueta])
+)
+GO
+CREATE INDEX idx_etiqueta_tareas ON etiqueta_tareas ([etiqueta])
+GO
+ALTER TABLE [etiqueta_tareas] ADD CONSTRAINT [fk_etiqueta_tareas__etiqueta] FOREIGN KEY ([etiqueta]) REFERENCES etiqueta ([idetiqueta])
+GO
+ALTER TABLE [etiqueta_tareas] ADD CONSTRAINT [fk_etiqueta_tareas__tarea] FOREIGN KEY ([tarea]) REFERENCES tarea ([idtarea])
+GO
+CREATE TABLE tarea_responsables (
+  [usuario] INTEGER NOT NULL,
+  [tarea] INTEGER NOT NULL,
+  CONSTRAINT [pk_tarea_responsables] PRIMARY KEY ([usuario], [tarea])
+)
+GO
+CREATE INDEX idx_tarea_responsables ON tarea_responsables ([tarea])
+GO
+ALTER TABLE [tarea_responsables] ADD CONSTRAINT [fk_tarea_responsables__tarea] FOREIGN KEY ([tarea]) REFERENCES tarea ([idtarea])
+GO
+ALTER TABLE [tarea_responsables] ADD CONSTRAINT [fk_tarea_responsables__usuario] FOREIGN KEY ([usuario]) REFERENCES usuario ([idusuario])
+GO
+--CARGA DE DATOS
+
+--usuarios
+INSERT INTO usuario (nombre, iniciales, mail, password )
+VALUES ('Florencia Arin', 'FA', 'florencia.arin@gmail.com','bazinga')
+INSERT INTO usuario (nombre, iniciales, mail, password )
+VALUES ('Martin Delgadillo', 'MD', 'pumba.es.martu@gmail.com','123456')
+INSERT INTO usuario (nombre, iniciales, mail, password )
+VALUES ('Rama No me Acuerdo', 'RA', 'rama@gmail.com','lechuga')
+INSERT INTO usuario (nombre, iniciales, mail, password )
+VALUES ('Franco Hildt', 'FH', 'franquito@gmail.com','elshowdeandy')
+
+--tableros sin equipo
+insert into tablero (nombre, idusuariocreacion) values ('cosas por hacer', 1)
+insert into tablero (nombre, idusuariocreacion) values ('trabajo', 2)
+
+
+--equipos
+insert into equipo (nombre, descripcion) values ('equipazo', 'este equpo se caracteriza por ser un equipazo')
+insert into equipo (nombre, descripcion) values ('The Team','franco hace mate por favor')
+insert into equipo (nombre, descripcion) values ('Galicia Seguros','')
+insert into equipo (nombre, descripcion) values ('La Banda','')
+
+
+--miembros equipos
+insert  into equipo_miembros (equipo, usuario) values (1, 1)
+insert  into equipo_miembros (equipo, usuario) values (1, 2)
+insert  into equipo_miembros (equipo, usuario) values (1, 3)
+insert  into equipo_miembros (equipo, usuario) values (1, 4)
+insert  into equipo_miembros (equipo, usuario) values (2, 1)
+insert  into equipo_miembros (equipo, usuario) values (2, 4)
+insert  into equipo_miembros (equipo, usuario) values (3, 1)
+insert  into equipo_miembros (equipo, usuario) values (3, 3)
+insert  into equipo_miembros (equipo, usuario) values (4, 1)
+insert  into equipo_miembros (equipo, usuario) values (4, 2)
+insert  into equipo_miembros (equipo, usuario) values (4, 3)
+insert  into equipo_miembros (equipo, usuario) values (4, 4)
+
+--tableros con equipo
+insert into tablero (nombre, idequipo, idusuariocreacion) values ('cosas por hacer', 1, 1)
+insert into tablero (nombre, idequipo, idusuariocreacion) values ('trabajo', 2, 2)
+insert into tablero (nombre, idequipo, idusuariocreacion) values ('vacaciones', 3, 4)
+insert into tablero (nombre, idequipo, idusuariocreacion) values ('organizar casa', 4, 1)
+
+--estados de tarea
+insert into estado (nombreestado) values ('TODO')
+insert into estado (nombreestado) values('DOING')
+insert into estado (nombreestado) values('DONE')
+insert into estado (nombreestado) values('ARCHIVADOS')
+
+
+--tareas con distintos estados algunos con descri y algunos con fecha vencimiento
+insert into tarea (idtablero, idestado, titulo, descripcion, idusuariocreo, fechacreacion, fechavencimiento)
+values (1, 1, 'hacer el tp de maxi', 'dale negra que llegas quizas jaja', 1, getdate(), '2018-12-31')
+
+insert into tarea (idtablero, idestado, titulo, descripcion, idusuariocreo, fechacreacion, fechavencimiento)
+values (1, 2, 'kheyger', 'dale negra que llegas quizas jaja', 1, getdate(), '2019-01-15')
+
+insert into tarea (idtablero, idestado, titulo, descripcion, idusuariocreo, fechacreacion, fechavencimiento)
+values (6, 3, 'yyyyyyyy', 'dale negra que llegas quizas jaja', 2, getdate(), '1/1/0001 00:00:00')
+
+
+insert into tarea (idtablero, idestado, titulo, descripcion, idusuariocreo, fechacreacion, fechavencimiento)
+values (6, 2, 'sdfsgfdgg', 'dale negra que llegas quizas jaja', 3, getdate(), '1/1/0001 00:00:00')
+
+
+--etiquetas
+insert into etiqueta (nombre) values ('dar prioridad')
+insert into etiqueta (nombre) values ('finde')
+insert into etiqueta (nombre) values ('fiesta fin de año')
+insert into etiqueta (nombre) values ('trabajo')
+
+--etiquetas tareas
+insert into etiqueta_tareas (tarea, etiqueta) values (1, 1)
+insert into etiqueta_tareas (tarea, etiqueta) values (1, 2)
+insert into etiqueta_tareas (tarea, etiqueta) values (5, 3)
+insert into etiqueta_tareas (tarea, etiqueta) values (6, 4)
+
+--comentarios
+insert into comentario (descripcomentario, fechacreacion, idtarea, idusuariocreacion)
+values ('este es un comentario hecho por flor en la tarea uno', getdate(), 1, 1)
+
+insert into comentario (descripcomentario, fechacreacion, idtarea, idusuariocreacion)
+values ('este es un comentario hecho por flor en la tarea uno', getdate(), 1, 1)
+
+insert into comentario (descripcomentario, fechacreacion, idtarea, idusuariocreacion)
+values ('este es otrooooo comentario hecho por flor en la tarea uno', getdate(), 1, 1)
+
+insert into comentario (descripcomentario, fechacreacion, idtarea, idusuariocreacion)
+values ('este es un comentario hecho por fran en la tarea seis del tablero organizar casa', getdate(), 6, 4)
+
+insert into comentario (descripcomentario, fechacreacion, idtarea, idusuariocreacion)
+values ('este es un comentario hecho por flor en la tarea seis del tablero organizar casa', getdate(), 6, 1)
+

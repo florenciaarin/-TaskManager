@@ -1,0 +1,9 @@
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\bin\Debug\Servicio.dll
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\bin\Debug\Servicio.pdb
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\bin\Debug\Dominio.dll
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\bin\Debug\Dominio.pdb
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\obj\Debug\Servicio.csprojAssemblyReference.cache
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\obj\Debug\Servicio.csproj.CoreCompileInputs.cache
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\obj\Debug\Servicio.csproj.CopyComplete
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\obj\Debug\Servicio.dll
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Servicio\obj\Debug\Servicio.pdb

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D51A35AC-39E2-46B3-ACC0-D0DC4D58FD82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Administrador_de_Tareas</RootNamespace>
+    <AssemblyName>Administrador_de_Tareas</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddEditDueDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditDueDate.Designer.cs">
+      <DependentUpon>AddEditDueDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEtiquetaToTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEtiquetaToTarea.Designer.cs">
+      <DependentUpon>AddEtiquetaToTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResponsable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResponsable.Designer.cs">
+      <DependentUpon>AddResponsable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ARCHIVADOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ARCHIVADOS.Designer.cs">
+      <DependentUpon>ARCHIVADOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarPerfilUsuario.Designer.cs">
+      <DependentUpon>EditarPerfilUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuUsuario.Designer.cs">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoUsuario.Designer.cs">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RenombarTABLERO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenombarTABLERO.Designer.cs">
+      <DependentUpon>RenombarTABLERO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearEquipo.Designer.cs">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearOeditarTitDescDeEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearOeditarTitDescDeEquipo.Designer.cs">
+      <DependentUpon>CrearOeditarTitDescDeEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearOeditarTitDescipComentTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearOeditarTitDescipComentTarea.Designer.cs">
+      <DependentUpon>CrearOeditarTitDescipComentTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearTABLERO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearTABLERO.Designer.cs">
+      <DependentUpon>CrearTABLERO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarEliminarEtiqueta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarEliminarEtiqueta.Designer.cs">
+      <DependentUpon>EditarEliminarEtiqueta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HOME.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HOME.Designer.cs">
+      <DependentUpon>HOME.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAddOrChangeTeamToTablero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAddOrChangeTeamToTablero.Designer.cs">
+      <DependentUpon>MenuAddOrChangeTeamToTablero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuOptionsLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuOptionsLists.Designer.cs">
+      <DependentUpon>MenuOptionsLists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuSiYaTieneEquipoTablero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuSiYaTieneEquipoTablero.Designer.cs">
+      <DependentUpon>MenuSiYaTieneEquipoTablero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoverTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoverTarea.Designer.cs">
+      <DependentUpon>MoverTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TABLERO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TABLERO.Designer.cs">
+      <DependentUpon>TABLERO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTAREA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTAREA.Designer.cs">
+      <DependentUpon>AddTAREA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerEditarTAREA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerEditarTAREA.Designer.cs">
+      <DependentUpon>VerEditarTAREA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerEditarEliminarTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerEditarEliminarTeam.Designer.cs">
+      <DependentUpon>VerEditarEliminarTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerPERFIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerPERFIL.Designer.cs">
+      <DependentUpon>VerPERFIL.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditDueDate.resx">
+      <DependentUpon>AddEditDueDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEtiquetaToTarea.resx">
+      <DependentUpon>AddEtiquetaToTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResponsable.resx">
+      <DependentUpon>AddResponsable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTAREA.yo-NG.resx">
+      <DependentUpon>AddTAREA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ARCHIVADOS.resx">
+      <DependentUpon>ARCHIVADOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarPerfilUsuario.resx">
+      <DependentUpon>EditarPerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUsuario.resx">
+      <DependentUpon>MenuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoUsuario.resx">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RenombarTABLERO.resx">
+      <DependentUpon>RenombarTABLERO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearEquipo.resx">
+      <DependentUpon>CrearEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearOeditarTitDescDeEquipo.resx">
+      <DependentUpon>CrearOeditarTitDescDeEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearOeditarTitDescipComentTarea.resx">
+      <DependentUpon>CrearOeditarTitDescipComentTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearTABLERO.resx">
+      <DependentUpon>CrearTABLERO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarEliminarEtiqueta.resx">
+      <DependentUpon>EditarEliminarEtiqueta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HOME.resx">
+      <DependentUpon>HOME.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAddOrChangeTeamToTablero.resx">
+      <DependentUpon>MenuAddOrChangeTeamToTablero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuOptionsLists.resx">
+      <DependentUpon>MenuOptionsLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuSiYaTieneEquipoTablero.resx">
+      <DependentUpon>MenuSiYaTieneEquipoTablero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoverTarea.resx">
+      <DependentUpon>MoverTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TABLERO.resx">
+      <DependentUpon>TABLERO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTAREA.resx">
+      <DependentUpon>AddTAREA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerEditarTAREA.resx">
+      <DependentUpon>VerEditarTAREA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerEditarEliminarTeam.resx">
+      <DependentUpon>VerEditarEliminarTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerPERFIL.resx">
+      <DependentUpon>VerPERFIL.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{2125b8ff-752c-486c-9509-ce3d57238855}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio\Servicio.csproj">
+      <Project>{82793c28-2a1f-4ecc-9e4c-8795cb1e2e7a}</Project>
+      <Name>Servicio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagonal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\holaPalmera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marYarena.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muchasPalmeras.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

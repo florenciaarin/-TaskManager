@@ -1,0 +1,6 @@
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\bin\Debug\Dominio.dll
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\obj\Debug\Dominio.dll
+C:\Users\Flor\Desktop\Programacion III 2C2018\Administrador_de_Tareas\Dominio\obj\Debug\Dominio.pdb
